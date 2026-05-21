@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
+  static const splashId = "splashId";
 
   @override
   Widget build(BuildContext context) {

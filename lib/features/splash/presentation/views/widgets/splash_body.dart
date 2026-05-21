@@ -2,6 +2,7 @@ import 'package:bookly_app/core/utils/assets_helper.dart';
 import 'package:bookly_app/core/utils/constant.dart';
 
 import 'package:bookly_app/features/splash/presentation/views/widgets/text_animation.dart';
+import 'package:bookly_app/features/view/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -19,17 +20,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     initTextAnimation();
 
-    // Future.delayed(ConstantHelper.duration, () {
-    //   // ignore: use_build_context_synchronously
-    //   Navigator.pushReplacementNamed(context, HomeView.homeId);
-    // });
+    Future.delayed(ConstantHelper.duration, () {
+      Navigator.pushReplacementNamed(context, HomeView.homeId);
+    });
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
