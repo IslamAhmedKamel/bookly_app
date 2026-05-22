@@ -1,11 +1,12 @@
 import 'package:bookly_app/core/utils/assets_helper.dart';
 import 'package:bookly_app/core/utils/constant.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/view_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
-
+  const BestSellerItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +20,9 @@ class BestSellerItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage(AssetsHelper.testImage),
+                  image: NetworkImage(
+                    bookModel.image ?? ConstantHelper.kTestImageFromNet,
+                  ),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -32,18 +35,23 @@ class BestSellerItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Harry Potter and the Goblet of Fire",
+                  bookModel.title ?? "مفيش عنوان هنا ",
                   style: StylesHelper.textStyle18.copyWith(
                     fontFamily: ConstantHelper.kSecondFont,
                   ),
                   maxLines: 2,
                 ),
-                Text("J.K Rowling", style: TextStyle(color: Colors.grey)),
+                Text(
+                  bookModel.subTitle ?? "nothing",
+                  style: TextStyle(color: Colors.grey),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "19.99 \$",
+                      // bookModel.
+                      // bookModel.averageRating.toString(),
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Row(
@@ -53,10 +61,13 @@ class BestSellerItem extends StatelessWidget {
                         //    FaIcon(FontAwesomeIcons.star, size: 10),
                         // ),
                         Text(
-                          "4.8",
+                          "${bookModel.averageRating ?? 4.8}",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text("(2390)", style: TextStyle(color: Colors.grey)),
+                        Text(
+                          "(${bookModel.pageCount ?? 2390})",
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     ),
                   ],

@@ -14,7 +14,6 @@ class GetBestSellerBooksService {
       for (var book in response.data['items']) {
         booklyList.add(BookModel.fromJson(json: book));
       }
-      log('$booklyList');
       return booklyList;
     } on Exception catch (e) {
       throw Exception(e.toString());

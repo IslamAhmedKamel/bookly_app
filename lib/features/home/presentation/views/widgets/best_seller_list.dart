@@ -12,8 +12,9 @@ class BestSellerList extends StatelessWidget {
       builder: (context, state) {
         if (state is GetBooksSuccese) {
           return ListView.builder(
-            itemBuilder: (context, index) => BestSellerItem(),
-            itemCount: 5,
+            itemBuilder: (context, index) =>
+                BestSellerItem(bookModel: state.booskList[index]),
+            itemCount: state.booskList.length,
           );
         } else if (state is GetBooksLoading) {
           return Center(child: CircularProgressIndicator());
