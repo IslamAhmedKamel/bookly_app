@@ -1,11 +1,24 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/cubit/cubit/get_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/items_list_category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<GetBooksCubit>(context).getBesrSellerBooks();
+  }
 
   @override
   Widget build(BuildContext context) {

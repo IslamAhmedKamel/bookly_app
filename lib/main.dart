@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: ConstantHelper.kPrimaryColor,
       ),
       initialRoute: SplashView.splashId,
-
       routes: {
         SplashView.splashId: (context) => SplashView(),
         HomeView.homeId: (context) => HomeView(),
