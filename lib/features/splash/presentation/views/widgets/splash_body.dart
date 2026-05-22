@@ -21,6 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initTextAnimation();
 
     Future.delayed(ConstantHelper.duration, () {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, HomeView.homeId);
     });
     super.initState();
