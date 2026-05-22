@@ -5,6 +5,8 @@ sealed class GetBooksState {}
 
 final class GetBooksInitial extends GetBooksState {}
 
+final class GetBooksLoading extends GetBooksState {}
+
 final class GetBooksSuccese extends GetBooksState {
   final List<BookModel> booskList;
 
@@ -16,5 +18,3 @@ final class GetBooksFailure extends GetBooksState {
 
   GetBooksFailure({required this.errMessage});
 }
-
-final class GetBooksLoading extends GetBooksState {}

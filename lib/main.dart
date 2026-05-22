@@ -5,7 +5,7 @@ import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  GetAllBooks().getAllBooks();
+  GetBestSellerBooksService().getAllBooks();
   runApp(const MyApp());
 }
 

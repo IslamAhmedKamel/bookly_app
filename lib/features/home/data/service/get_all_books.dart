@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bookly_app/features/home/presentation/view_model/book_model.dart';
 import 'package:dio/dio.dart';
 
-class GetAllBooks {
+class GetBestSellerBooksService {
   Dio dio = Dio();
   List<BookModel> booklyList = [];
   Future<List<BookModel>> getAllBooks() async {
