@@ -33,18 +33,19 @@ class HomeRepoImplement implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturebooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchFlutterbooks() async {
     const endPoint =
-        "q=arabian+nights&key=AIzaSyDizIQICxTIKz_hAQ5vufv422IoGk0gYVg";
+        "q=python&limit=10";
     try {
       var res = await ApiService().get(endPoint: endPoint);
       List<BookModel> books = [];
-      for (var item in res["items"]) {
+      for (var item in res["docs"]) {
         books.add(BookModel.fromJson(json: item));
       }
       return right(books);
     } catch (e) {
       if (e is DioException) {
+        log("$e");
         return left(ServerError.fromDioException(dioException: e));
       } else {
         return left(

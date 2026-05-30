@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/view_model/newset_cubit/cubit/newset_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view_model/programming_cubit/cubit/programming_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

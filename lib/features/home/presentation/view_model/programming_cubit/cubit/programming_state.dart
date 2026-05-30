@@ -1,4 +1,4 @@
-part of 'newset_cubit.dart';
+part of 'programming_cubit.dart';
 
 @immutable
 sealed class NewsetState {}
