@@ -1,30 +1,25 @@
 class BookModel {
-  final String? image;
+  final num? id;
   final String? title;
   final String? author;
-  final String? subTitle;
-  // final ListPrice listPrice;
   final int? averageRating;
-  final int? pageCount;
+  final int? firstPublishYear;
 
   BookModel({
     required this.title,
-    required this.author,
-    required this.subTitle,
-    // required this.listPrice,
+    this.author,
     required this.averageRating,
-    required this.pageCount,
-    required this.image,
+    required this.firstPublishYear,
+    required this.id,
   });
   factory BookModel.fromJson({required Map<String, dynamic> json}) {
     return BookModel(
-      image: json['volumeInfo']['imageLinks']['thumbnail'],
-      title: json['volumeInfo']['title'],
-      subTitle: json['volumeInfo']['subTitle'],
-      author: json['volumeInfo'][0],
+      id: json['cover_i'],
+      title: json["title"],
+      author: (json['author_name'][0]),
       // listPrice: listPrice,
-      averageRating: json['volumeInfo']['averageRating'],
-      pageCount: json['volumeInfo']['pageCount'],
+      averageRating: json["edition_count"],
+      firstPublishYear: json["first_publish_year"],
     );
   }
   // factory BookModel.fromJson(Map<String, dynamic> json) {

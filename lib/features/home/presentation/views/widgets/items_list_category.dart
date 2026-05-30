@@ -9,7 +9,7 @@ class ItemsListCategory extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.25,
       child: ListView.builder(
-        padding: EdgeInsets.only(left: 12),
+        padding: EdgeInsets.zero,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => ItemCategory(),
         itemCount: 5,

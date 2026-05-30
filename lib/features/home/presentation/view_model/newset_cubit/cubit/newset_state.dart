@@ -12,9 +12,9 @@ final class NewsetSucces extends NewsetState {
 }
 
 final class NewsetFailure extends NewsetState {
-  final String errMessage;
+  final String errMesge;
 
-  NewsetFailure({required this.errMessage});
+  NewsetFailure({required this.errMesge});
 }
 
 final class NewsetLoading extends NewsetState {}

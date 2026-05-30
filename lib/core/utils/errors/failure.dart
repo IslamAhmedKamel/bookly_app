@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class Failure {
   final String errorMessage;
 
-  Failure({required this.errorMessage});
+  const Failure({required this.errorMessage});
 }
 
 class ServerError extends Failure {

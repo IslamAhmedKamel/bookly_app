@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/features/home/data/book_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_implement.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'newset_state.dart';
 
@@ -12,10 +12,10 @@ class NewsetCubit extends Cubit<NewsetState> {
     var result = await HomeRepoImplement().fetchNewsetbooks();
     result.fold(
       (failure) {
-        emit(NewsetFailure(errMessage: failure.errorMessage));
+        emit(NewsetFailure(errMesge: failure.errorMessage));
       },
-      (books) {
-        emit(NewsetSucces(books: books));
+      (book) {
+        emit(NewsetSucces(books: book));
       },
     );
   }
