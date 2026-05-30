@@ -1,10 +1,8 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/data/cubit/cubit/get_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/items_list_category.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -17,7 +15,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<GetBooksCubit>(context).getBesrSellerBooks();
+    // BlocProvider.of<GetBooksCubit>(context).getBesrSellerBooks();
   }
 
   @override
@@ -31,8 +29,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           SizedBox(height: 15),
           ItemsListCategory(),
           SizedBox(height: 30),
-          Text("Best Seller", style: StylesHelper.textStyle20),
-          Expanded(child: BestSellerList()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Text("Best Seller", style: StylesHelper.textStyle20),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: BestSellerList(),
+            ),
+          ),
         ],
       ),
     );
