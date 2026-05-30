@@ -1,7 +1,9 @@
 import 'package:bookly_app/core/utils/constant.dart';
+import 'package:bookly_app/features/home/presentation/view_model/newset_cubit/cubit/newset_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,18 +15,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: ConstantHelper.kPrimaryColor,
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => NewsetCubit())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: ConstantHelper.kPrimaryColor,
+        ),
+        initialRoute: HomeView.homeId,
+        routes: {
+          SplashView.splashId: (context) => SplashView(),
+          HomeView.homeId: (context) => HomeView(),
+        },
       ),
-      initialRoute: HomeView.homeId,
-      routes: {
-        SplashView.splashId: (context) => SplashView(),
-        HomeView.homeId: (context) => HomeView(),
-      },
     );
   }
 }

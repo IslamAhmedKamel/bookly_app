@@ -8,11 +8,10 @@ import 'package:dio/dio.dart';
 class HomeRepoImplement implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturebooks() async {
-    const kBaseUrl = "https://www.googleapis.com/books/v1/volumes?";
     const endPoint =
         "q=arabian+nights&key=AIzaSyDizIQICxTIKz_hAQ5vufv422IoGk0gYVg";
     try {
-      var res = await ApiService().get(baseUrl: kBaseUrl, endPoint: endPoint);
+      var res = await ApiService().get(endPoint: endPoint);
       List<BookModel> books = [];
       for (var item in res["items"]) {
         books.add(BookModel.fromJson(json: item));
