@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/features/home/data/book_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_implement.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'flutter_state.dart';
 

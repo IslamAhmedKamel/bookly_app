@@ -16,49 +16,52 @@ class BestSellerItem extends StatelessWidget {
   // void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        GoRouter.of(context).push(AppRoute.detailsViewPath, extra: bookModel);
-      },
-      child: Container(
-        height: 130,
-        padding: EdgeInsets.only(bottom: 10, right: 10),
-        child: Row(
-          children: [
-            BookImage(bookModel: bookModel),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {
+          GoRouter.of(context).push(AppRoute.detailsViewPath, extra: bookModel);
+        },
+        child: Container(
+          height: 130,
+          padding: EdgeInsets.only(bottom: 10, right: 10),
+          child: Row(
+            children: [
+              BookImage(bookModel: bookModel),
 
-            SizedBox(width: 30),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    bookModel.title ?? "مفيش عنوان هنا ",
-                    style: StylesHelper.textStyle18.copyWith(
-                      fontFamily: ConstantHelper.kSecondFont,
-                    ),
-                    maxLines: 2,
-                  ),
-                  Text(
-                    bookModel.author ?? "nothing",
-                    maxLines: 1,
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${bookModel.averageRating?.toDouble() ?? "5.2"}',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+              SizedBox(width: 30),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      bookModel.title ?? "مفيش عنوان هنا ",
+                      style: StylesHelper.textStyle18.copyWith(
+                        fontFamily: ConstantHelper.kSecondFont,
                       ),
-                      CustomRating(bookModel: bookModel),
-                    ],
-                  ),
-                ],
+                      maxLines: 2,
+                    ),
+                    Text(
+                      bookModel.author ?? "nothing",
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '${bookModel.averageRating?.toDouble() ?? "5.2"}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        CustomRating(bookModel: bookModel),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

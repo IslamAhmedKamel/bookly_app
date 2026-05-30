@@ -25,13 +25,15 @@ class DatailsViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 12),
 
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 10),
-            child: Text(
-              bookModel.title!,
-              style: StylesHelper.textStyle22,
-              textAlign: TextAlign.center,
-              maxLines: 2,
+          Align(
+            child: Padding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 10),
+              child: Text(
+                bookModel.title!,
+                style: StylesHelper.textStyle22,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+              ),
             ),
           ),
           const SizedBox(height: 6),
