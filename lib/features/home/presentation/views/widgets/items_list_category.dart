@@ -18,7 +18,7 @@ class ItemsListCategory extends StatelessWidget {
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(right: 8),
+                padding: const EdgeInsets.only(left: 12),
                 child: ItemCategory(bookModel: state.books[index]),
               ),
             ),
